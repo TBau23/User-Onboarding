@@ -33,7 +33,7 @@ const onInputChange = evt => {
     <form className='form-container' onSubmit={onSubmit}>
         <div className='form-submit-div' >
             <h2>Add a user</h2>
-            <button disabled={disabled}>Submit</button>
+            <button id='submitBtn' disabled={disabled}>Submit</button>
 
             <div className='errors'>
                 <div>{errors.username}</div>
