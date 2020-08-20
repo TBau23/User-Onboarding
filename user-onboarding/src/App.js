@@ -5,6 +5,7 @@ import axios from 'axios'
 import formSchema from './Validation/formSchema'
 import * as yup from 'yup'
 import User from './User'
+import { v4 as uuid} from 'uuid'
 
 const initialFormValues = {
 
@@ -37,7 +38,7 @@ export default function App() {
 const getUsers = () => {
   axios.get("https://reqres.in/api/users")
     .then(res => {
-      setUsers(res.data)
+      setUsers(res.data.data)
     })
     .catch(err => {
       debugger
@@ -48,7 +49,8 @@ const postNewUser = newUser => {
 
   axios.post('https://reqres.in/api/users', newUser )
     .then(res => {
-      setUsers([...users], newUser)
+      console.log(res)
+      setUsers([...users, res.data])
     })
     .catch(err => {
       debugger
@@ -123,7 +125,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <h1>User Onboarding App</h1>
+      <header><h1>User Onboarding App</h1></header>
       <Form
       values={formValues}
       errors={formErrors}

@@ -8,10 +8,10 @@ const formSchema = yup.object().shape({
     username: yup
         .string()
         .required('Must enter a username')
-        .min("Username must be at least 5 characters long"),
+        .min(5,"Username must be at least 5 characters long"),
     password: yup
         .string()
-        .min('Password must be at least 5 characters long')
+        .min(5, 'Password must be at least 5 characters long')
         .required('Must enter a password'),
     role: yup
         .string()

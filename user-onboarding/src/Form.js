@@ -14,6 +14,7 @@ const {
 
 const onSubmit = evt => {
     evt.preventDefault()
+    
     submit()
 }
 
@@ -22,17 +23,23 @@ const onCheckboxChange = evt => {
     checkboxChange(name, checked)
 }
 
+const onInputChange = evt => {
+    const { name, value } = evt.target
+    inputChange(name, value)
+}
 
 
   return (
     <form className='form-container' onSubmit={onSubmit}>
         <div className='form-submit-div' >
             <h2>Add a user</h2>
-            <button>Submit</button>
+            <button disabled={disabled}>Submit</button>
 
             <div className='errors'>
-                
-                <div></div>
+                <div>{errors.username}</div>
+                <div>{errors.email}</div>
+                <div>{errors.password}</div>
+                <div>{errors.role}</div>
             </div>
             <div className='input-div'>
                 <h4>Enter Information</h4>
@@ -41,9 +48,8 @@ const onCheckboxChange = evt => {
                     <input 
                     name='username'
                     type='text'
-
-
-
+                    value={values.username}
+                    onChange={onInputChange}
                     />
                 </label>
 
@@ -51,7 +57,8 @@ const onCheckboxChange = evt => {
                     <input 
                     name='email'
                     type='email'
-
+                    value={values.email}
+                    onChange={onInputChange}
 
                     />
                 </label>
@@ -60,13 +67,16 @@ const onCheckboxChange = evt => {
                     <input
                     name='password'
                     type='password'
-
+                    value={values.password}
+                    onChange={onInputChange}
                     />
                 </label>
 
                 <label>Role&nbsp;
                     <select
                     name='role'
+                    value={values.role}
+                    onChange={onInputChange}
                     >
                         <option value=''>--Select an Option</option>
                         <option value='Hacker-Beast'>Hacker Beast</option>
@@ -79,7 +89,8 @@ const onCheckboxChange = evt => {
                     <input 
                     type='checkbox'
                     name='termsOfService'
-
+                    checked={values.termsOfService}
+                    onChange={onCheckboxChange}
                     />
 
                 </label>
