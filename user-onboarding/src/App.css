@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+* {
+  background-color: darkcyan;
+  color: white;
+}
+
+.input-div input {
+  margin: 1%;
+  border: 1px solid white;
+}
+
+.input-div select {
+  margin: 1%;
+  border: 1px solid white;
+}
+
+button {
+  border: 1px solid white;
+}
+
+.user-div {
+  border: 1px solid white;
+  margin: 1% auto;
+  width: 50%;
+}
